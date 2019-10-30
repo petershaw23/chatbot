@@ -34,7 +34,7 @@ with Observer(nick, chatbot_token_b.token) as observer:
             for event in observer.get_events():
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
-                        observer.send_message('Kommando-Liste: !help', event.channel)
+                        observer.send_message('Kommando-Liste: !demo1  !demo2  !demo3  !snes  !exit', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
                     if event.message == '!demo1':
@@ -49,6 +49,12 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill emulation*')
                         observer.send_message('demo2 start', event.channel)
                         os.system("bash /home/pi/pi-music-bot/twitch2.sh &")
+                    if event.message == '!demo3':
+                        os.system('sudo systemctl stop lightdm')
+                        os.system('pkill retroarch')
+                        os.system('pkill emulation*')
+                        observer.send_message('demo3 start!', event.channel)
+                        os.system("bash /home/pi/pi-music-bot/twitch3.sh &")
                     if event.message == '!snes':
                         os.system('sudo systemctl stop lightdm')
                         os.system('pkill retroarch')
@@ -60,6 +66,7 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill snes.sh')
                         os.system('pkill twitch1.sh')
                         os.system('pkill twitch2.sh')
+                        os.system('pkill twitch3.sh')
                         observer.send_message('exiting emulation', event.channel)
             currentTime = time.time()
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
