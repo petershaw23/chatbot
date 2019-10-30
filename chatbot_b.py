@@ -2,6 +2,7 @@
 #!/usr/bin/python3
 #documentation: https://github.com/joshuaskelly/twitch-observer
 import time
+import random
 import os
 from twitchobserver import Observer
 import chatbot_token_b # imports local file with bot token (.gitignored, so create chatbot_token.py locally!). get twitch oauth from https://twitchapps.com/tmi/
