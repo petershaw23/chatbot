@@ -16,9 +16,9 @@ nick = 'bud_lan'
 messages = [
     "BudLAN. Kommen und Siegen.",
     "BudLAN = BestLAN",
-    "Wer BudLAN sagt muss auch BudLBN sagen!"
-    "Tommy stinkt."
-    "BudLAN. Oberhausens größtes ESPORTS event, seit 1938."
+    "Wer BudLAN sagt muss auch BudLBN sagen!",
+    "Tommy stinkt.",
+    "BudLAN. Oberhausens größtes ESPORTS event, seit 1938.",
     "BudLAN 2019. Get your tickets at www.budlan.de"
 ]
 
