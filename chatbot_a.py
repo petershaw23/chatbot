@@ -36,7 +36,7 @@ with Observer(nick, chatbot_token_a.token) as observer:
                 observer.send_message(randomMessage, "channel")
 
                 lastTimeMessagedSend = currentTime
-        try:
+    
             for event in observer.get_events():
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
