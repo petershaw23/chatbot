@@ -65,15 +65,6 @@ def socketconnection():
     except:
         print(traceback.format_exc())
 
-
-def puppet():
-    try:
-        while True:
-            message = input(' assuming direct control: ') 
-            sendmessage(message)
-            commands(message, 'bud_lan_b')
-    except BrokenPipeError:
-        socketconnection()
         
 
 def sendmessage(text):
@@ -125,7 +116,6 @@ def commands(message, username):
 
 sendmessage('HeyGuys')
 
-t = threading.Thread(target=puppet).start()
 
 def messageloop():
     while True:
