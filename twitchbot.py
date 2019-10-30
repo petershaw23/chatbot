@@ -13,7 +13,7 @@ import re
 import datetime
 import chatbot_token # imports local file with bot token
 token = chatbot_token.token
-#time.sleep(15)
+time.sleep(15)
 
 #pulls channel name from the commandline. if there is no arg, channel name defaults to bud_lan_b
 try:
