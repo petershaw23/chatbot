@@ -2,15 +2,14 @@
 
 import socket
 import string
-import random
 import time
-import json
-import threading
+#import json
+#import threading
 import os
 import traceback
 import re
-import requests
-import sys
+#import requests
+#import sys
 import datetime
 import chatbot_token # imports local file with bot token
 token = chatbot_token.token
@@ -123,8 +122,7 @@ def messageloop():
         
         try:
             readbuffer = readbuffer+s.recv(1024).decode("UTF-8") 
-        except KeyboardInterrupt:
-            raise
+       
         except:
            print(traceback.format_exc())   
         
@@ -154,8 +152,7 @@ def messageloop():
 while True:
     try:
         messageloop()
-    except KeyboardInterrupt:
-        raise 
+   
     except:
         print(traceback.format_exc())
         socketconnection()
