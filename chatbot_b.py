@@ -34,43 +34,49 @@ with Observer(nick, chatbot_token_b.token) as observer:
             for event in observer.get_events():
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
-                        observer.send_message('Kommando-Liste: !demo1  !demo2  !demo3  !demo4  !snes  !exit', event.channel)
+                        observer.send_message('Kommando-Liste: !demo1  !demo2  !demo3  !demo4 !demo5 !snes  !exit', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
                     if event.message == '!demo1':
                         os.system('sudo systemctl stop lightdm')
                         os.system('pkill retroarch')
                         os.system('pkill emulation*')
+                        os.system('pkill ffmpg*')
                         observer.send_message('demo1 start', event.channel)
                         os.system("bash /home/pi/pi-music-bot/twitch1.sh &")
                     if event.message == '!demo2':
                         os.system('sudo systemctl stop lightdm')
                         os.system('pkill retroarch')
                         os.system('pkill emulation*')
+                        os.system('pkill ffmpg*')
                         observer.send_message('demo2 start', event.channel)
                         os.system("bash /home/pi/pi-music-bot/twitch2.sh &")
                     if event.message == '!demo3':
                         os.system('sudo systemctl stop lightdm')
                         os.system('pkill retroarch')
                         os.system('pkill emulation*')
+                        os.system('pkill ffmpg*')
                         observer.send_message('demo3 start!', event.channel)
                         os.system("bash /home/pi/pi-music-bot/twitch3.sh &")
                     if event.message == '!demo4':
                         os.system('sudo systemctl stop lightdm')
                         os.system('pkill retroarch')
                         os.system('pkill emulation*')
+                        os.system('pkill ffmpg*')
                         observer.send_message('demo4 start!', event.channel)
                         os.system("bash /home/pi/pi-music-bot/twitch4.sh &")
                     if event.message == '!demo5':
                         os.system('sudo systemctl stop lightdm')
                         os.system('pkill retroarch')
                         os.system('pkill emulation*')
+                        os.system('pkill ffmpg*')
                         observer.send_message('demo5 start!', event.channel)
                         os.system("bash /home/pi/pi-music-bot/twitch5.sh &")    
                     if event.message == '!snes':
                         os.system('sudo systemctl stop lightdm')
                         os.system('pkill retroarch')
                         os.system('pkill emulation*')
+                        os.system('pkill ffmpg*')
                         observer.send_message('snes start', event.channel)
                         os.system("bash /home/pi/pi-music-bot/snes.sh &")
                     if event.message == '!exit':
@@ -80,7 +86,8 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill twitch2.sh')
                         os.system('pkill twitch3.sh')
                         os.system('pkill twitch4.sh')
-                        os.system('pkill twitch5.sh') 
+                        os.system('pkill twitch5.sh')
+                        os.system('pkill ffmpg*')
                         os.system("bash /home/pi/FFMpeg/test.sh &")
                         observer.send_message('exiting emulation', event.channel)
             currentTime = time.time()
