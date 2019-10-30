@@ -7,7 +7,7 @@ nick = 'bud_lan_b'
 
 with Observer(nick, token) as observer:
     observer.join_channel(channel)
-    observer.send_message('Hallo. Ich bin ein Chat-Bot. !Commands zeigt alle meine Befehle. Tommy stinkt übrigens!', channel)
+    observer.send_message('Hallo. Ich bin ein Chat-Bot. !commands zeigt alle meine Befehle. Tommy stinkt übrigens!', channel)
 
     while True:
         try:
