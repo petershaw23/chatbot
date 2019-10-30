@@ -37,7 +37,7 @@ with Observer(nick, chatbot_token_a.token) as observer:
        #             if event.message == '!help':
        #                 observer.send_message('versuch mal !commands', event.channel)
                         
-           
+            currentTime = time.time()
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
                 randomMessage = messages[random.randint(0, len(messages) - 1)]
                 observer.send_message(randomMessage, channel)
