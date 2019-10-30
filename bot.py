@@ -34,10 +34,10 @@ def timeout(sock, user, secs=600):
     
     
 s = socket.socket()
-s.connect((HOST, PORT))
-s.send("PASS {}\r\n".format(PASS).encode("utf-8"))
-s.send("NICK {}\r\n".format(NICK).encode("utf-8"))
-s.send("JOIN {}\r\n".format(CHAN).encode("utf-8"))
+s.connect((cfg.HOST, cfg.PORT))
+s.send("PASS {}\r\n".format(cfg.PASS).encode("utf-8"))
+s.send("NICK {}\r\n".format(cfg.NICK).encode("utf-8"))
+s.send("JOIN {}\r\n".format(cfg.CHAN).encode("utf-8"))
 
 
 while True:
