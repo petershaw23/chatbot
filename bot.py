@@ -40,6 +40,13 @@ s.send("NICK {}\r\n".format(cfg.NICK).encode("utf-8"))
 s.send("JOIN {}\r\n".format(cfg.CHAN).encode("utf-8"))
 
 
+def sendmessage(text):
+    # Method for sending a message
+    s.send(bytes("PRIVMSG #" + CHAN + " :" + str(text) + "\r\n", "UTF-8"))
+    
+
+sendmessage('HeyGuys')
+
 while True:
     response = s.recv(1024).decode("utf-8")
     if response == "PING :tmi.twitch.tv\r\n":
