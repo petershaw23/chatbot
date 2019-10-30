@@ -1,4 +1,6 @@
-chatbot_token.py
+chatbot_token_a.py
+chatbot_token_b.py
+chatbot_token_c.py
 *.txt
 /script/__pycache_/*
 *.pyc
