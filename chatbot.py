@@ -2,6 +2,7 @@
 #!/usr/bin/python3
 #documentation: https://github.com/joshuaskelly/twitch-observer
 import time
+import os
 from twitchobserver import Observer
 import chatbot_token # imports local file with bot token (.gitignored, so create chatbot_token.py locally!). get twitch oauth from https://twitchapps.com/tmi/
 
@@ -20,6 +21,12 @@ with Observer(nick, chatbot_token.token) as observer:
                         observer.send_message('es gibt noch keine commands, ausser !help', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
+                    if event.message == '!demo1':
+                        os.system('sudo systemctl stop lightdm')
+                        os.system('pkill retroarch')
+                        os.system('pkill emulation*')
+                        observer.send_message('demo1 start', event.channel)
+                        os.system("bash /home/pi/pi-music-bot/twitch1.sh &")
 
             time.sleep(1)
 
