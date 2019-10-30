@@ -1,3 +1,6 @@
+
+#!/usr/bin/python3
+#documentation: https://github.com/joshuaskelly/twitch-observer
 import time
 from twitchobserver import Observer
 import chatbot_token # imports local file with bot token
