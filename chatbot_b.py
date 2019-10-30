@@ -55,6 +55,12 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill emulation*')
                         observer.send_message('demo3 start!', event.channel)
                         os.system("bash /home/pi/pi-music-bot/twitch3.sh &")
+                    if event.message == '!demo4':
+                        os.system('sudo systemctl stop lightdm')
+                        os.system('pkill retroarch')
+                        os.system('pkill emulation*')
+                        observer.send_message('demo4 start!', event.channel)
+                        os.system("bash /home/pi/pi-music-bot/twitch4.sh &")                        
                     if event.message == '!snes':
                         os.system('sudo systemctl stop lightdm')
                         os.system('pkill retroarch')
