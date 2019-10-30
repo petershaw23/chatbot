@@ -152,7 +152,8 @@ def messageloop():
 while True:
     try:
         messageloop()
-   
+    except KeyboardInterrupt:
+        raise 
     except:
         print(traceback.format_exc())
         socketconnection()
