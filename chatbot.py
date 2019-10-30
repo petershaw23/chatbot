@@ -18,7 +18,7 @@ with Observer(nick, chatbot_token.token) as observer:
             for event in observer.get_events():
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
-                        observer.send_message('es gibt noch keine commands, ausser !help', event.channel)
+                        observer.send_message('!demo1 !demo2 !snes !exit', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
                     if event.message == '!demo1':
@@ -27,8 +27,26 @@ with Observer(nick, chatbot_token.token) as observer:
                         os.system('pkill emulation*')
                         observer.send_message('demo1 start', event.channel)
                         os.system("bash /home/pi/pi-music-bot/twitch1.sh &")
+                    if event.message == '!demo2':
+                        os.system('sudo systemctl stop lightdm')
+                        os.system('pkill retroarch')
+                        os.system('pkill emulation*')
+                        observer.send_message('demo2 start', event.channel)
+                        os.system("bash /home/pi/pi-music-bot/twitch2.sh &")
+                    if event.message == '!snes':
+                        os.system('sudo systemctl stop lightdm')
+                        os.system('pkill retroarch')
+                        os.system('pkill emulation*')
+                        observer.send_message('snes start', event.channel)
+                        os.system("bash /home/pi/pi-music-bot/snes.sh &")
+                    if event.message == '!exit':
+                        os.system('pkill retroarch')
+                        os.system('pkill snes.sh')
+                        os.system('pkill twitch1.sh')
+                        os.system('pkill twitch2.sh')
+                        observer.send_message('exiting emulation', event.channel)
 
-            time.sleep(1)
+            time.sleep(0.3)
 
         except KeyboardInterrupt:
             observer.send_message('Bye. P.S.: Tommy ist doof.', channel)
