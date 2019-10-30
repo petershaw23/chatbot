@@ -10,6 +10,20 @@ time.sleep(15) #to wait for network connection @reboot (crontab)
 channel = 'bud_lan_b'
 nick = 'bud_lan_b'
 
+# Define the messages to display.
+messages = [
+    "BudLAN. Kommen und Siegen. Auch hier im B-Stream",
+    "BudLAN = BestLAN. Selbst im B-Stream noch besser als Dreamhack.",
+    "Wer BudLA-STREAM sagt muss auch BudLB-STREAM sagen!"
+
+]
+
+# Send a message every 300 sec.
+messageSendInterval = 300
+currentTime = time.time()
+lastTimeMessagedSend = currentTime
+
+
 with Observer(nick, chatbot_token_b.token) as observer:
     observer.join_channel(channel)
     observer.send_message('Hallo. Ich bin ein Chat-Bot. !commands zeigt alle meine Befehle. Tommy stinkt übrigens!', channel)
@@ -46,7 +60,13 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill twitch1.sh')
                         os.system('pkill twitch2.sh')
                         observer.send_message('exiting emulation', event.channel)
-
+            currentTime = time.time()
+            if currentTime - lastTimeMessagedSend >= messageSendInterval:
+                randomMessage = messages[random.randint(0, len(messages) - 1)]
+                observer.send_message(randomMessage, channel)
+                lastTimeMessagedSend = currentTime
+    
+            
             time.sleep(0.3)
 
         except KeyboardInterrupt:
