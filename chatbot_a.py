@@ -22,8 +22,8 @@ messages = [
     "BudLAN 2019. Get your tickets at www.budlan.de"
 ]
 
-# Send a message every 60 sec.
-messageSendInterval = 60
+# Send a message every 120 sec.
+messageSendInterval = 120
 currentTime = time.time()
 lastTimeMessagedSend = currentTime
 
