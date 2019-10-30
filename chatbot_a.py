@@ -19,9 +19,10 @@ messages = [
     "This is a very very very very very very very very very very very very very very very very very very very very very very very very very long message. Probably too long :)"
 ]
 
-# Send a message every 3 minutes.
-messageSendInterval = 3 * 60
+# Send a message every 1 minutes.
+messageSendInterval = 1 * 60
 currentTime = time.time()
+lastTimeMessagedSend = currentTime
 
 with Observer(nick, chatbot_token_a.token) as observer:
     observer.join_channel(channel)
@@ -29,15 +30,22 @@ with Observer(nick, chatbot_token_a.token) as observer:
 
     while True:
         try:
-            
-            lastTimeMessagedSend = currentTime
+            for event in observer.get_events():
+                if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
+                    if event.message == '!commands':
+                        observer.send_message('!demo1 !demo2 !snes !exit', event.channel)
+                    if event.message == '!help':
+                        observer.send_message('versuch mal !commands', event.channel)
+                        
+           
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
                 randomMessage = messages[random.randint(0, len(messages) - 1)]
                 observer.send_message(randomMessage, "channel")
 
                 lastTimeMessagedSend = currentTime
     
-
+            time.sleep(0.3)
+        
         except KeyboardInterrupt:
             observer.send_message('Bye. P.S.: Tommy ist doof.', channel)
             observer.leave_channel(channel)
