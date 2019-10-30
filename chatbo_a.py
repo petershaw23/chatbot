@@ -5,7 +5,7 @@ import time
 import random
 import os
 from twitchobserver import Observer
-import chatbot_token_b # imports local file with bot token (.gitignored, so create chatbot_token.py locally!). get twitch oauth from https://twitchapps.com/tmi/
+import chatbot_token_a # imports local file with bot token (.gitignored, so create chatbot_token.py locally!). get twitch oauth from https://twitchapps.com/tmi/
 time.sleep(15) #to wait for network connection @reboot (crontab)
 
 channel = 'bud_lan_b'
@@ -23,7 +23,7 @@ messages = [
 messageSendInterval = 3 * 60
 
 
-with Observer(nick, chatbot_token_b.token) as observer:
+with Observer(nick, chatbot_token_a.token) as observer:
     observer.join_channel(channel)
     observer.send_message('Hallo. Ich bin ein Chat-Bot für den A-Stream. !commands zeigt alle meine Befehle. Tommy stinkt übrigens!', channel)
 
