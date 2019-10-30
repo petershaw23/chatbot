@@ -122,6 +122,8 @@ def messageloop():
         
         try:
             readbuffer = readbuffer+s.recv(1024).decode("UTF-8") 
+        except KeyboardInterrupt:
+            raise
        
         except:
            print(traceback.format_exc())   
