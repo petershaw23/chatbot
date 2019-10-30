@@ -60,7 +60,13 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill retroarch')
                         os.system('pkill emulation*')
                         observer.send_message('demo4 start!', event.channel)
-                        os.system("bash /home/pi/pi-music-bot/twitch4.sh &")                        
+                        os.system("bash /home/pi/pi-music-bot/twitch4.sh &")
+                    if event.message == '!demo5':
+                        os.system('sudo systemctl stop lightdm')
+                        os.system('pkill retroarch')
+                        os.system('pkill emulation*')
+                        observer.send_message('demo5 start!', event.channel)
+                        os.system("bash /home/pi/pi-music-bot/twitch5.sh &")    
                     if event.message == '!snes':
                         os.system('sudo systemctl stop lightdm')
                         os.system('pkill retroarch')
@@ -73,6 +79,8 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill twitch1.sh')
                         os.system('pkill twitch2.sh')
                         os.system('pkill twitch3.sh')
+                        os.system('pkill twitch4.sh')
+                        os.system('pkill twitch5.sh')                        
                         observer.send_message('exiting emulation', event.channel)
             currentTime = time.time()
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
