@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+from time import sleep
 import cfg
 import socket
 import re
