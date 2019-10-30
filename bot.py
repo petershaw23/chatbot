@@ -2,7 +2,7 @@
 
 import cfg
 import socket
-
+import re
 
 def chat(sock, msg):
     """
