@@ -26,14 +26,14 @@ lastTimeMessagedSend = currentTime
 
 with Observer(nick, chatbot_token_b.token) as observer:
     observer.join_channel(channel)
-    observer.send_message('Hallo. Ich bin ein Chat-Bot. !commands zeigt alle meine Befehle. Tommy stinkt übrigens!', channel)
+    observer.send_message('Hallo. Ich bin ein Chat-Bot für den B-Stream. !commands zeigt alle meine Befehle. Tommy stinkt übrigens!', channel)
 
     while True:
         try:
             for event in observer.get_events():
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
-                        observer.send_message('!demo1 !demo2 !snes !exit', event.channel)
+                        observer.send_message('Kommando-Liste: !help', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
                     if event.message == '!demo1':
@@ -66,8 +66,9 @@ with Observer(nick, chatbot_token_b.token) as observer:
                 observer.send_message(randomMessage, channel)
                 lastTimeMessagedSend = currentTime
     
-            
             time.sleep(0.3)
+
+ 
 
         except KeyboardInterrupt:
             observer.send_message('Bye. P.S.: Tommy ist doof.', channel)
