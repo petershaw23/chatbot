@@ -19,8 +19,8 @@ messages = [
     "This is a very very very very very very very very very very very very very very very very very very very very very very very very very long message. Probably too long :)"
 ]
 
-# Send a message every 1 minutes.
-messageSendInterval = 1 * 60
+# Send a message every 15 sec.
+messageSendInterval = 15
 currentTime = time.time()
 lastTimeMessagedSend = currentTime
 
@@ -33,7 +33,7 @@ with Observer(nick, chatbot_token_a.token) as observer:
             for event in observer.get_events():
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
-                        observer.send_message('!demo1 !demo2 !snes !exit', event.channel)
+                        observer.send_message('Kommando-Liste: !help', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
                         
@@ -41,7 +41,6 @@ with Observer(nick, chatbot_token_a.token) as observer:
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
                 randomMessage = messages[random.randint(0, len(messages) - 1)]
                 observer.send_message(randomMessage, "channel")
-
                 lastTimeMessagedSend = currentTime
     
             time.sleep(0.3)
