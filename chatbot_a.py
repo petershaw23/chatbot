@@ -28,7 +28,6 @@ with Observer(nick, chatbot_token_a.token) as observer:
     observer.send_message('Hallo. Ich bin ein Chat-Bot für den A-Stream. !commands zeigt alle meine Befehle. Tommy stinkt übrigens!', channel)
 
     while True:
-    
         try:
             currentTime = time.time()
 
