@@ -42,7 +42,7 @@ s.send("JOIN {}\r\n".format(cfg.CHAN).encode("utf-8"))
 
 def sendmessage(text):
     # Method for sending a message
-    s.send(bytes("PRIVMSG #" + CHAN + " :" + str(text) + "\r\n", "UTF-8"))
+    s.send(bytes("PRIVMSG #" + cfg.CHAN + " :" + str(text) + "\r\n", "UTF-8"))
     
 
 sendmessage('HeyGuys')
