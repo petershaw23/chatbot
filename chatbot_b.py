@@ -19,7 +19,7 @@ messages = [
 ]
 
 # Send a message every 300 sec.
-messageSendInterval = 300
+messageSendInterval = 30
 currentTime = time.time()
 lastTimeMessagedSend = currentTime
 
