@@ -5,7 +5,7 @@ import time
 import os
 from twitchobserver import Observer
 import chatbot_token # imports local file with bot token (.gitignored, so create chatbot_token.py locally!). get twitch oauth from https://twitchapps.com/tmi/
-
+time.sleep(15)
 channel = 'bud_lan_b'
 nick = 'bud_lan_b'
 
