@@ -46,7 +46,7 @@ def sendmessage(text):
     
 
 sendmessage('HeyGuys')
-
+s.send(bytes("PRIVMSG #" + cfg.CHAN + " :" + str('HeyGuys') + "\r\n", "UTF-8"))
 while True:
     response = s.recv(1024).decode("utf-8")
     if response == "PING :tmi.twitch.tv\r\n":
