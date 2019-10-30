@@ -14,13 +14,16 @@ nick = 'bud_lan'
 
 # Define the messages to display.
 messages = [
-    "This is an example message to be displayed in chat.",
-    "This is an example message that has an URL in it: https://github.com/JoshuaSkelly/twitch-observer/",
-    "This is a very very very very very very very very very very very very very very very very very very very very very very very very very long message. Probably too long :)"
+    "BudLAN. Kommen und Siegen.",
+    "BudLAN = BestLAN",
+    "Wer BudLAN sagt muss auch BudLBN sagen!"
+    "Tommy stinkt."
+    "BudLAN. Oberhausens größtes ESPORTS event, seit 1938."
+    "BudLAN 2019. Get your tickets at www.budlan.de"
 ]
 
-# Send a message every 15 sec.
-messageSendInterval = 15
+# Send a message every 60 sec.
+messageSendInterval = 60
 currentTime = time.time()
 lastTimeMessagedSend = currentTime
 
