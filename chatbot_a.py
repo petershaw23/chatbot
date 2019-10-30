@@ -21,7 +21,7 @@ messages = [
 
 # Send a message every 3 minutes.
 messageSendInterval = 3 * 60
-
+currentTime = time.time()
 
 with Observer(nick, chatbot_token_a.token) as observer:
     observer.join_channel(channel)
@@ -29,7 +29,7 @@ with Observer(nick, chatbot_token_a.token) as observer:
 
     while True:
         try:
-            currentTime = time.time()
+            
             lastTimeMessagedSend = currentTime
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
                 randomMessage = messages[random.randint(0, len(messages) - 1)]
