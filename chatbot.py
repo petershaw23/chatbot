@@ -17,7 +17,9 @@ with Observer(nick, chatbot_token.token) as observer:
             for event in observer.get_events():
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
-                        observer.send_message('es gibt noch keinen commands!', event.channel)
+                        observer.send_message('es gibt noch keine commands, ausser !help', event.channel)
+                     if event.message == '!help':
+                        observer.send_message('versuch mal !commands', event.channel)
 
             time.sleep(1)
 
