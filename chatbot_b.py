@@ -80,7 +80,8 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill twitch2.sh')
                         os.system('pkill twitch3.sh')
                         os.system('pkill twitch4.sh')
-                        os.system('pkill twitch5.sh')                        
+                        os.system('pkill twitch5.sh') 
+                        os.system("bash /home/pi/FFMpeg/test.sh &")
                         observer.send_message('exiting emulation', event.channel)
             currentTime = time.time()
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
