@@ -1,0 +1,4 @@
+chatbot_token.py
+*.txt
+/script/__pycache_/*
+*.pyc
