@@ -7,7 +7,7 @@ nick = 'bud_lan_b'
 
 with Observer(nick, token) as observer:
     observer.join_channel(channel)
-    observer.send_message('Hello', channel)
+    observer.send_message('Hallo. Ich bin ein Chat-Bot. !Commands zeigt alle meine Befehle. Tommy stinkt übrigens!', channel)
 
     while True:
         try:
@@ -18,6 +18,6 @@ with Observer(nick, token) as observer:
             time.sleep(1)
 
         except KeyboardInterrupt:
-            observer.send_message('Bye', channel)
+            observer.send_message('Bye. P.S.: Tommy ist doof.', channel)
             observer.leave_channel(channel)
             break
