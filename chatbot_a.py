@@ -30,7 +30,7 @@ with Observer(nick, chatbot_token_a.token) as observer:
     while True:
         try:
             currentTime = time.time()
-
+            lastTimeMessagedSend = currentTime
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
                 randomMessage = messages[random.randint(0, len(messages) - 1)]
                 observer.send_message(randomMessage, "channel")
