@@ -17,11 +17,11 @@ def handle_event(event):
     if event.message[0:2].upper() == '!Y':
         votes[event.nickname] = 1
         print('someone voted yes')
-        observer.send_message('user'+str(event.nickname)+'voted yes', channel)
+        observer.send_message('voted yes', channel)
         
     elif event.message[0:2].upper() == '!N':
         votes[event.nickname] = -1
-        observer.send_message('user'+str(event.nickname)+'voted no', channel)
+        observer.send_message('voted no', channel)
         print('someone voted no')
 
 observer = Observer(nick, votebot_token.token)
