@@ -16,10 +16,11 @@ def handle_event(event):
         
     if event.message[0:2].upper() == '!Y':
         votes[event.nickname] = 1
+        print('someone voted yes')
         
     elif event.message[0:2].upper() == '!N':
         votes[event.nickname] = -1
-        
+        print('someone voted no')
 
 observer = Observer(nick, votebot_token.token)
 observer.subscribe(handle_event)
