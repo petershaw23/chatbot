@@ -1,30 +1,49 @@
 #!/usr/bin/python3
 #https://github.com/JoshuaSkelly/twitch-observer/wiki/Cookbook#voting
 import votebot_token # imports local file with bot token (.gitignored, so create chatbot_token.py locally!). get twitch oauth from https://twitchapps.com/tmi/
-
-import goslate
+import time
 from twitchobserver import Observer
-
-gs = goslate.Goslate()
 
 nick = 'budLAN_votebot'
 channel = 'bud_lan'
-native_lang_id = 'en'
 
-with Observer(nick, votebot_token.token) as observer:
-    observer.join_channel(channel)
 
-    while True:
-        try:
-            for event in observer.get_events():
-                if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
-                    language_id = gs.detect(event.message)
+votes = {}
 
-                    if language_id != native_lang_id:
-                        translation = gs.translate(event.message, native_lang_id)
-                        language_name = gs.get_languages()[language_id]
+def handle_event(event):
+    if event.type != 'TWITCHCHATMESSAGE':
+        return
+        
+    if event.message[0:2].upper() == '!Y':
+        votes[event.nickname] = 1
+        
+    elif event.message[0:2].upper() == '!N':
+        votes[event.nickname] = -1
+        
 
-                        observer.send_whisper(nick, '{}({}): {}'.format(event.nickname, language_name, translation))
+observer = Observer(nick, votebot_token.token)
+observer.subscribe(handle_event)
 
-        except KeyboardInterrupt:
-            observer.leave_channel(channel)
+observer.send_message('Voting has started!', channel)
+
+observer.start()
+observer.join_channel(channel)
+time.sleep(60)
+observer.unsubscribe(handle_event)
+
+observer.send_message('Voting is over!', channel)
+
+time.sleep(2)
+tally = sum(votes.values())
+
+if tally > 0:
+    observer.send_message('The yeas have it!', channel)
+
+elif tally < 0:
+    observer.send_message('The nays have it!', channel)
+
+else:
+    observer.send_message('Its a draw!', channel)
+
+observer.leave_channel(channel)
+observer.stop()
