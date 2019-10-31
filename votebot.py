@@ -27,7 +27,7 @@ def handle_event(event):
 observer = Observer(nick, votebot_token.token)
 observer.subscribe(handle_event)
 
-observer.send_message('Voting has started!', channel)
+observer.send_message('Next game poll: !cs  !q3  !ut  !wc3  !moh !cod !wreckfest !flatout !aoe2', channel)
 
 observer.start()
 observer.join_channel(channel)
