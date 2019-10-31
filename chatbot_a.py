@@ -48,7 +48,7 @@ with Observer(nick, chatbot_token_a.token) as observer:
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
                     if event.message == '!newpoll':
-                        os.system("python3 /home/pi/chatbot/votebot.py")
+                        os.system("python3 /home/pi/chatbot/votebot.py &")
                         observer.send_message('starting new poll', event.channel)
                         
                 if event.type == 'TWITCHCHATJOIN' and event.nickname != 'bud_lan':
