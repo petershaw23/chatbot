@@ -13,10 +13,10 @@ nick = 'bud_lan_b'
 
 # Define the messages to display.
 messages = [
-    "BudLAN. Kommen und Siegen. Auch hier im B-Stream",
+    "BudLAN. So geht gaming heute! Auch hier im B-Stream",
     "BudLAN = BestLAN. Selbst im B-Stream noch besser als Dreamhack.",
-    "Wer BudLA-STREAM sagt muss auch BudLB-STREAM sagen!"
-
+    "Wer BudLA-STREAM sagt muss auch BudLB-STREAM sagen!",
+    "BudLAN. Oberhausens finest. Since 1938"
 ]
 
 # Send a message every 120 sec.
@@ -79,7 +79,7 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill ffmpg*')
                         observer.send_message('snes start', event.channel)
                         os.system("bash /home/pi/pi-music-bot/snes.sh &")
-                    if event.message == '!exit':
+                    if event.message == '!test':
                         os.system('pkill retroarch')
                         os.system('pkill snes.sh')
                         os.system('pkill twitch1.sh')
@@ -89,7 +89,19 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system('pkill twitch5.sh')
                         os.system('pkill ffmpg*')
                         os.system("bash /home/pi/FFMpeg/test.sh &")
-                        observer.send_message('exiting emulation', event.channel)
+                        os.system("bash /home/pi/FFMpeg/test_a.sh &")
+                        os.system("bash /home/pi/FFMpeg/test_c.sh &")
+                        observer.send_message('test streams started!', event.channel)
+                    if event.message == '!exit':
+                        os.system('pkill retroarch')
+                        os.system('pkill snes.sh')
+                        os.system('pkill twitch1.sh')
+                        os.system('pkill twitch2.sh')
+                        os.system('pkill twitch3.sh')
+                        os.system('pkill twitch4.sh')
+                        os.system('pkill twitch5.sh')
+                        os.system('pkill ffmpg*')
+                        observer.send_message('quitting all streams', event.channel)                       
             currentTime = time.time()
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
                 randomMessage = messages[random.randint(0, len(messages) - 1)]
