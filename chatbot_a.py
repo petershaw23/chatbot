@@ -51,7 +51,8 @@ with Observer(nick, chatbot_token_a.token) as observer:
                         os.system("python3 /home/pi/chatbot/votebot.py")
                         observer.send_message('starting new poll', event.channel)
                         
-                if event.type == 'TWITCHCHATJOIN' and event.nickname != 'TwitchChatBot':
+                if event.type == 'TWITCHCHATJOIN' and event.nickname != 'bud_lan':
+                    time.sleep(5)
                     observer.send_message('🍺 Welcome {}!'.format(event.nickname), event.channel)
                         
             currentTime = time.time()
