@@ -34,7 +34,7 @@ with Observer(nick, chatbot_token_b.token) as observer:
             for event in observer.get_events():
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
-                        observer.send_message('Kommando-Liste: !demo1  !demo2  !demo3  !demo4 !demo5 !snes  !exit', event.channel)
+                        observer.send_message('Kommando-Liste: !demo1  !demo2  !demo3  !demo4 !demo5 !snes !test !exit', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
                     if event.message == '!demo1':
