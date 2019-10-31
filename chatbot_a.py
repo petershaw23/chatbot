@@ -19,7 +19,14 @@ messages = [
     "Wer BudLAN sagt muss auch BudLBN sagen!",
     "Tommy stinkt.",
     "BudLAN. Oberhausens größtes ESPORTS event, seit 1938.",
-    "BudLAN 2019. Get your tickets at www.budlan.de"
+    "BudLAN 2019. Get your tickets at www.budlan.de",
+    "BudLAN. Oberhausens finest. Since 1938",
+    "BudLAN. Just do it!",
+    "BudLAN. Perfection.",
+    "BudLAN. LANen macht frei",
+    "BudLAN. Toasted.",
+    "BudLAN. Hier kann man UNREAL TOURNAMENT SPIELEN!",
+    "BudLAN: E-GAMING UNLIMITED"
 ]
 
 # Send a message every 120 sec.
