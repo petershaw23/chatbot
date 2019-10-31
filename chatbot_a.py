@@ -41,11 +41,14 @@ with Observer(nick, chatbot_token_a.token) as observer:
     while True:
         try:
             for event in observer.get_events():
+                
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
                         observer.send_message('Kommando-Liste: !help', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
+                if event.type == 'TWITCHCHATJOIN' and event.nickname != 'TwitchChatBot':
+                    observer.send_message('🍺 Welcome {}!'.format(event.nickname), event.channel)
                         
             currentTime = time.time()
             if currentTime - lastTimeMessagedSend >= messageSendInterval:
