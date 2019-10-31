@@ -38,6 +38,8 @@ with Observer(nick, chatbot_token_b.token) as observer:
     while True:
         try:
             for event in observer.get_events():
+                if event.type == 'TWITCHCHATJOIN' and event.nickname != 'TwitchChatBot':
+                    observer.send_message('🍺 Welcome {}!'.format(event.nickname), event.channel)
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
                         observer.send_message('Kommando-Liste: !demo1  !demo2  !demo3  !demo4 !demo5 !snes !test !exit', event.channel)
