@@ -16,7 +16,13 @@ messages = [
     "BudLAN. So geht gaming heute! Auch hier im B-Stream",
     "BudLAN = BestLAN. Selbst im B-Stream noch besser als Dreamhack.",
     "Wer BudLA-STREAM sagt muss auch BudLB-STREAM sagen!",
-    "BudLAN. Oberhausens finest. Since 1938"
+    "BudLAN. Oberhausens finest. Since 1938",
+    "BudLAN. Just do it!",
+    "BudLAN. Perfection.",
+    "BudLAN. LANen macht frei",
+    "BudLAN. Toasted.",
+    "BudLAN. Hier kann man UNREAL TOURNAMENT SPIELEN!",
+    "BudLAN: E-GAMING UNLIMITED"
 ]
 
 # Send a message every 120 sec.
