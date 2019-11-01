@@ -54,10 +54,7 @@ with Observer(nick, chatbot_token_a.token) as observer:
                         os.system('pkill retroarch')
                         os.system('pkill ffmpg*')
                         os.system("bash /home/pi/twitch/go_a.sh &")
-                    if event.message == '!off':
-                        os.system('pkill retroarch')
-                        os.system('pkill ffmpg*')
-                        observer.send_message('quitting all streams', event.channel)  
+
                         
                 if event.type == 'TWITCHCHATJOIN' and event.nickname != 'bud_lan':
                     observer.send_message('🍺 Welcome {}!'.format(event.nickname), event.channel)
