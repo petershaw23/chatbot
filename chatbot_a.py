@@ -44,12 +44,20 @@ with Observer(nick, chatbot_token_a.token) as observer:
                 
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
-                        observer.send_message('Kommando-Liste: !help !newpoll', event.channel)
+                        observer.send_message('Kommando-Liste: !help !newpoll !colors !off', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
                     if event.message == '!newpoll':
                         os.system("python3 /home/pi/chatbot/votebot.py &")
                         observer.send_message('starting new poll', event.channel)
+                    if event.message == '!colors':
+                        os.system('pkill retroarch')
+                        os.system('pkill ffmpg*')
+                        os.system("bash /home/pi/twitch/go_a.sh &")
+                    if event.message == '!off':
+                        os.system('pkill retroarch')
+                        os.system('pkill ffmpg*')
+                        observer.send_message('quitting all streams', event.channel)  
                         
                 if event.type == 'TWITCHCHATJOIN' and event.nickname != 'bud_lan':
                     observer.send_message('🍺 Welcome {}!'.format(event.nickname), event.channel)
