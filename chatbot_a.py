@@ -17,7 +17,7 @@ messages = [
     "BudLAN. Kommen und Siegen.",
     "BudLAN = BestLAN",
     "Wer BudLAN sagt muss auch BudLBN sagen!",
-    "Tommy stinkt.",
+   
     "BudLAN. Oberhausens größtes ESPORTS event, seit 1938.",
     "BudLAN 2019. Get your tickets at www.budlan.de",
     "BudLAN. Oberhausens finest. Since 1938",
@@ -29,8 +29,8 @@ messages = [
     "BudLAN: E-GAMING UNLIMITED"
 ]
 
-# Send a message every 120 sec.
-messageSendInterval = 120
+# Send a message every 180 sec.
+messageSendInterval = 180
 currentTime = time.time()
 lastTimeMessagedSend = currentTime
 
@@ -52,7 +52,6 @@ with Observer(nick, chatbot_token_a.token) as observer:
                         observer.send_message('starting new poll', event.channel)
                         
                 if event.type == 'TWITCHCHATJOIN' and event.nickname != 'bud_lan':
-                    time.sleep(5)
                     observer.send_message('🍺 Welcome {}!'.format(event.nickname), event.channel)
                         
             currentTime = time.time()
