@@ -44,7 +44,7 @@ with Observer(nick, chatbot_token_b.token) as observer:
                     
                 if event.type == 'TWITCHCHATMESSAGE' and event.nickname != observer._nickname and event.message:
                     if event.message == '!commands':
-                        observer.send_message('Kommando-Liste: !demo1  !demo2  !demo3  !demo4 !demo5 !snes !test !exit', event.channel)
+                        observer.send_message('Kommando-Liste: !demo1  !demo2  !demo3  !demo4 !demo5 !snes !test !colors !off', event.channel)
                     if event.message == '!help':
                         observer.send_message('versuch mal !commands', event.channel)
                     if event.message == '!demo1':
@@ -91,25 +91,17 @@ with Observer(nick, chatbot_token_b.token) as observer:
                         os.system("bash /home/pi/pi-music-bot/snes.sh &")
                     if event.message == '!test':
                         os.system('pkill retroarch')
-                        os.system('pkill snes.sh')
-                        os.system('pkill twitch1.sh')
-                        os.system('pkill twitch2.sh')
-                        os.system('pkill twitch3.sh')
-                        os.system('pkill twitch4.sh')
-                        os.system('pkill twitch5.sh')
                         os.system('pkill ffmpg*')
                         os.system("bash /home/pi/FFMpeg/test.sh &")
                         os.system("bash /home/pi/FFMpeg/test_a.sh &")
                         os.system("bash /home/pi/FFMpeg/test_c.sh &")
                         observer.send_message('test streams started!', event.channel)
-                    if event.message == '!exit':
+                    if event.message == '!colors':
                         os.system('pkill retroarch')
-                        os.system('pkill snes.sh')
-                        os.system('pkill twitch1.sh')
-                        os.system('pkill twitch2.sh')
-                        os.system('pkill twitch3.sh')
-                        os.system('pkill twitch4.sh')
-                        os.system('pkill twitch5.sh')
+                        os.system('pkill ffmpg*')
+                        os.system("bash /home/pi/twitch/go.sh &")
+                    if event.message == '!off':
+                        os.system('pkill retroarch')
                         os.system('pkill ffmpg*')
                         observer.send_message('quitting all streams', event.channel)                       
             currentTime = time.time()
