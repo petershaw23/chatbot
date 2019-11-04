@@ -27,11 +27,13 @@ def handle_event(event):
 observer = Observer(nick, votebot_token.token)
 observer.subscribe(handle_event)
 
-observer.send_message('Next game poll: !cs  !q3  !ut  !wc3  !moh !cod !wreckfest !flatout !aoe2', channel)
+observer.send_message('Vote !yes or !no. You have 60 seconds!', channel)
 
 observer.start()
 observer.join_channel(channel)
-time.sleep(60)
+time.sleep(30)
+observer.send_message('... 30 seconds left ...', channel)
+time.sleep(30)
 observer.unsubscribe(handle_event)
 
 observer.send_message('Voting is over!', channel)
